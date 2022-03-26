@@ -12,7 +12,6 @@ var quest= document.querySelector('.questions')
 
 
 
-
 beginGame.addEventListener('click', function () {
 
     var timer = setInterval(function () {
@@ -30,3 +29,7 @@ beginGame.addEventListener('click', function () {
         
      )} , 1000)
 })
+
+
+const hoiNgu = document.createElement("p");
+quest.appendChild(hoiNgu).textContent= ('Test.')
