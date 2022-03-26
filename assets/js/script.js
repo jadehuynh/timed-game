@@ -4,10 +4,14 @@ var welcomeTxt= document.querySelector('.lrgTitle')
 var rules= document.querySelector('.intro-Rules')
 var beginGame= document.querySelector('.start-btn')
 var timeLeft= 5
-var blank= document.querySelector('#blankSpace')
 var timeDisplay= document.querySelector('.timerStart')
 var quest= document.querySelector('.questions')
 
+
+
+
+const procedures = document.createElement("p");
+rules.appendChild(procedures).textContent= alert('This is a multiple choice game! Please read the question carefuly before selecting ONE of the FOUR answers provided to proceed. If you finish answering all the given questions before the timer reaches ZERO, you win! Although, if you DO NOT finish within the alotted time- YOU LOSE!')
 
 
 
@@ -28,6 +32,7 @@ beginGame.addEventListener('click', function () {
             timeDisplay.textContent = timeLeft
         
      )} , 1000)
+         
 })
 
 
