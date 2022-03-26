@@ -1,7 +1,7 @@
 HTML
 
 1. Start screen with title, rules, start button, timer
-2. Question screen container with question text, buttons. timer, feedback based on answer selected
+2. Question screen container with question text, buttons, timer, feedback based on answer selected
 3. End of game container with final score, form to enter initials, and a submit button
 4. High score page
 5. build containers, give id's and class names
