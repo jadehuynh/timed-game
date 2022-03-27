@@ -9,29 +9,41 @@ var quest= document.querySelector('#questions')
 var container= document.querySelector('#content')
 var userChoice= document.querySelector('.answers')
 var questionContainer= document.querySelector('#questionContainer')
-var nextBtn= document.querySelector('nextBtn')
+var nextBtn= document.querySelector('.nextBtn')
 questionContainer.style.display= "none"
 
 var questions= [
     {
-        question: "7 x 7",
-        answers: ["49", "59", "69", "79"],
-        cAnswer: "49"
+        question: "What is the correct abbreviation for JavaScript?",
+        answers: ["JS", "JV", "JVS", "JA"],
+        cAnswer: "JS"
     },
     {
-        question: "8 x 8",
-        answers: ["49", "59", "69", "64"],
-        cAnswer: "64"
+        question: "What does 'var' stand for in JavaScript Language?",
+        answers: ["Variety", "Variable", "Varietal", "Varying"],
+        cAnswer: "Variable"
     },
     {
-        question: "9 x 9",
-        answers: ["49", "59", "81", "79"],
-        cAnswer: "81"
+        question: "What kind of punctuation follows the word 'function'?",
+        answers: ["Parenthesis & Quotations", "Curly Brackets & Forward Slashes", "Parenthesis & Curly Brackets", "Hashtag & Quotations"],
+        cAnswer: "Parenthesis & Curly Brackets"
+    },
+    {
+        question: "What kind of Primitive Data Type involves true or false conditions?",
+        answers: ["Null", "Undefined", "String", "Boolean"],
+        cAnswer: "Boolean"
+    },
+    {
+        question: "What is the purpose of the 'concat()' method?",
+        answers: ["To multiply", "To join", "To subtract", "To discard"],
+        cAnswer: "To join"
     },
 ]
 var questionIndex= 0
 
 function showQuestion(index) {
+    quest.textContent= ""
+    userChoice.textContent= ""
     for (var i = 0; i < questions.length; i++) {
         var Q= (questions[index].question)
         var answerList= (questions[index].answers)
@@ -64,12 +76,14 @@ function ansCheck(answer) {
             questionContainer.appendChild(checker)
             questionIndex++;
             next(questionIndex)
+            console.log(questionIndex)
 }
 
 function next(index) {
     nextBtn.addEventListener('click', function() {
        if (index >= questions.length) {
-           console.log()
+           alert("You're Done!")
+           clearInterval(timer)
        }
        else {
         checker.textContent= " "
@@ -86,12 +100,12 @@ const procedures = document.createElement("p");
 rules.appendChild(procedures).textContent= alert('Welcome to the TIMED QUIZ GAME! This is a multiple choice game. Please read the question(s) carefully before selecting ONE of the FOUR answers provided to proceed. If you finish answering all the given questions before the timer reaches ZERO, you win! Although, if you DO NOT finish within the alotted time- YOU LOSE!')
 
 
-
+var timer;
 //start button function to also begin timer
 beginGame.addEventListener('click', function () {
     questionContainer.style.display= "block"
     showQuestion(questionIndex)
-    var timer = setInterval(function () { 
+     timer = setInterval(function () { 
         timeLeft--;
         if (timeLeft < 0) {
             clearInterval(timer)
