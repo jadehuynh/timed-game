@@ -19,7 +19,6 @@ time, mark, audio, video {
 	margin: 0;
 	padding: 0;
 	border: 0;
-	font-size: 100%;
 	/*removed font: inherit to get bold lettering on h tags*/
 	vertical-align: baseline;
 }
