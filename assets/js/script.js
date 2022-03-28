@@ -136,6 +136,7 @@ beginGame.addEventListener('click', function () {
 var userInitialInput= document.querySelector('#inital')
 var userScoreInput= document.querySelector('#score')
 var saveButtonInput= document.querySelector('#saveButton')
+var scoreForm= document.querySelector('#score-form')
 var playerRecords= [];
 
 let userRecord= {
@@ -153,7 +154,7 @@ playerRecords.forEach(function(playerRecords) {
         userRecord.appendChild(saveButtonInput)
         saveButtonInput.addEventListener('click', function () {
             
-            rendermessage(saveButtonInput)
+            renderMessage(saveButtonInput)
         })
     })
 
