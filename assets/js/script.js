@@ -2,14 +2,22 @@ var rootEl = $('#root');
 
 var welcomeTxt= document.querySelector('.lrgTitle')
 var rules= document.querySelector('.intro-Rules')
-var beginGame= document.querySelector('.start-btn')
+
+var beginGame= document.querySelector('.start-btn'); beginGame.style.position = "sticky";
+beginGame.style.left = "50%";
+beginGame.style.transform = "translateX(-50%)";
+
 var timeLeft= 30
 var timeDisplay= document.querySelector('.timerStart')
 var quest= document.querySelector('#questions')
 var container= document.querySelector('#content')
 var userChoice= document.querySelector('.answers')
 var questionContainer= document.querySelector('#questionContainer')
-var nextBtn= document.querySelector('.nextBtn')
+
+var nextBtn= document.querySelector('.nextBtn'); nextBtn.style.position = "sticky";
+nextBtn.style.left = "49%";
+nextBtn.style.transform = "translateX(-49%)";
+
 questionContainer.style.display= "none"
 
 var questions= [
@@ -50,7 +58,10 @@ function showQuestion(index) {
         quest.textContent= Q
     }
     answerList.forEach(function(ans) {
-        var answerButton= document.createElement("button")
+        var answerButton= document.createElement("button"); 
+        answerButton.style.position = "inline";
+        answerButton.style.left = "49%";
+        answerButton.style.transform = "translateX(-49%)";
             answerButton.classList.add("answer-btn")
             answerButton.textContent= ans
             userChoice.appendChild(answerButton)
@@ -67,11 +78,11 @@ function ansCheck(answer) {
     
         if (answer === questions[questionIndex].cAnswer) {
             console.log("correct")
-            checker.textContent= "Correct!"
+            checker.textContent= "Great work! Your selection is correct."
         }
             else {
                 console.log("wrong")
-                checker.textContent= "Incorrect."
+                checker.textContent= "Sorry! Your selection is incorrect. Please refresh the browser to try again."
             }
             questionContainer.appendChild(checker)
             questionIndex++;
@@ -97,7 +108,7 @@ function next(index) {
 
 //made prompt with rules for creating an element to hold the text
 const procedures = document.createElement("p");
-rules.appendChild(procedures).textContent= alert('Welcome to the TIMED QUIZ GAME! This is a multiple choice game. Please read the question(s) carefully before selecting ONE of the FOUR answers provided to proceed. If you finish answering all the given questions before the timer reaches ZERO, you win! Although, if you DO NOT finish within the alotted time- YOU LOSE!')
+rules.appendChild(procedures).textContent= alert('Welcome to the TIMED QUIZ GAME! This is a multiple choice game. Please read the question(s) carefully before selecting ONE of the FOUR answers provided to proceed. You are given 60 seconds to answer all five questions. If you finish answering all the given questions before the timer reaches ZERO, you win! Although, if you DO NOT finish within the alotted time- YOU LOSE! Please refresh the browser to try again.')
 
 
 var timer;
