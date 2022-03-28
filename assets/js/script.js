@@ -6,7 +6,7 @@ var beginGame= document.querySelector('.start-btn'); beginGame.style.position = 
 beginGame.style.left = "50%";
 beginGame.style.transform = "translateX(-50%)";
 
-var timeLeft= 30
+var timeLeft= 60
 var timeDisplay= document.querySelector('.timerStart')
 var quest= document.querySelector('#questions')
 var container= document.querySelector('#content')
