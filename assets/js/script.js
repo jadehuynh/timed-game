@@ -2,7 +2,6 @@ var rootEl = $('#root');
 
 var welcomeTxt= document.querySelector('.lrgTitle')
 var rules= document.querySelector('.intro-Rules')
-
 var beginGame= document.querySelector('.start-btn'); beginGame.style.position = "sticky";
 beginGame.style.left = "50%";
 beginGame.style.transform = "translateX(-50%)";
@@ -13,10 +12,10 @@ var quest= document.querySelector('#questions')
 var container= document.querySelector('#content')
 var userChoice= document.querySelector('.answers')
 var questionContainer= document.querySelector('#questionContainer')
-
 var nextBtn= document.querySelector('.nextBtn'); nextBtn.style.position = "sticky";
 nextBtn.style.left = "49%";
 nextBtn.style.transform = "translateX(-49%)";
+
 
 questionContainer.style.display= "none"
 
@@ -33,18 +32,18 @@ var questions= [
     },
     {
         question: "What kind of punctuation follows the word 'function'?",
-        answers: ["Parenthesis & Quotations", "Curly Brackets & Forward Slashes", "Parenthesis & Curly Brackets", "Hashtag & Quotations"],
-        cAnswer: "Parenthesis & Curly Brackets"
+        answers: ["( ) and ' '", "{ } & //", "( ) & { }", "# & [ ]"],
+        cAnswer: "( ) & { }"
     },
     {
-        question: "What kind of Primitive Data Type involves true or false conditions?",
+        question: "What kind of Primitive Data Type involves 'true' or 'false' conditions?",
         answers: ["Null", "Undefined", "String", "Boolean"],
         cAnswer: "Boolean"
     },
     {
-        question: "What is the purpose of the 'concat()' method?",
-        answers: ["To multiply", "To join", "To subtract", "To discard"],
-        cAnswer: "To join"
+        question: "What does the 'concat( )' method do?",
+        answers: ["Multiply", "Join", "Subtract", "Discard"],
+        cAnswer: "Join"
     },
 ]
 var questionIndex= 0
@@ -134,27 +133,60 @@ beginGame.addEventListener('click', function () {
        
 })
 
-// function showQuestion() {
-// //I need to figure out how to interchange the array of questions in and out
-//     var questionIndex = Math.floor(Math.random() * quizQuests.length);
+var userInitialInput= document.querySelector('#inital')
+var userScoreInput= document.querySelector('#score')
+var saveButtonInput= document.querySelector('#saveButton')
+var playerRecords= [];
 
-// beginGame.addEventListener('click', questionIndex)
-// quest.appendChild(quest).textContent= (quizQuests[i])
+let userRecord= {
+    Intials: userInitialInput,
+    Score: userScoreInput,
+};
 
 
 
-// //I need to figure out how to all boolean conditions to all answer selections and how to interchange them with the array
-// if (userChoice === true) {
-//     window.alert("Correct answer!");
-  
-// } else if (
-//     (userChoice === false)
+playerRecords.forEach(function(playerRecords) {
+    var saveButtonInput= document.createElement("button"); 
+        saveButtonInput.classList.add("save-btn")
+        saveButtonInput.textContent= userRecord.push(playerRecords)
+        saveButtonInput.appendChild(saveButtonInput)
+        userRecord.appendChild(saveButtonInput)
+        saveButtonInput.addEventListener('click', function () {
+            
+            rendermessage(saveButtonInput)
+        })
+    })
 
-//   ) {
-//     window.alert("Incorrect. Please try again.");
-//   }
-// console.log(showQuestion)
-// }
+
+
+saveButtonInput.addEventListener("click", function (event) {
+    event.preventDefault();
+    playerRecords.push(userRecord);
+
+    localStorage.setItem("userRecord", JSON.stringify(playerRecords));
+    renderMessage();
+
+    console.log(playerRecords)
+});
+
+function renderMessage(playerRecords) {
+    var playerListFromStorage = JSON.parse(localStorage.getItem("userRecord"));  
+   
+   
+    for (var i = 0; i < playerListFromStorage.length; i++) {
+        console.log(playerListFromStorage[userRecord]);
+        allData += playerListFromStorage[userRecord];
+    }
+    var allData = "";
+    
+    document.querySelector(".scoreInfo").innerHTML = allData;
+       }
+
+
+
+
+
+
 
 //created h3 element to display questions
 const questTitle= document.createElement("h3");
