@@ -6,6 +6,8 @@ var scoreBoard = document.querySelector('scoreContainer');
 var intiialsEl = document.getElementById('initials')
 var scoreEl = document.getElementById('score')
 
+
+
 function init() {
     getWins();
     getlosses();
