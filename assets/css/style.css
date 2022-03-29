@@ -76,3 +76,10 @@ p.timeRemain {
     text-decoration: underline;
     margin: 13px;
 }
+h2 {
+    display: flex;
+    margin: 2rem;
+    color: white;
+    text-align: center;
+    font-size: 2rem;
+}
