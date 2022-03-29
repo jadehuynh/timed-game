@@ -82,7 +82,10 @@ function ansCheck(answer) {
             else {
                 console.log("wrong")
                 checker.textContent= "Sorry! Your selection is incorrect. Please refresh the browser to try again."
+                timeLeft= timeLeft-5;
             }
+
+            
             questionContainer.appendChild(checker)
             questionIndex++;
             next(questionIndex)
@@ -163,11 +166,11 @@ playerRecords.forEach(function(playerRecords) {
 saveButtonInput.addEventListener("click", function (event) {
     event.preventDefault();
     playerRecords.push(userRecord);
-
+  
     localStorage.setItem("userRecord", JSON.stringify(playerRecords));
     renderMessage();
 
-    console.log(playerRecords)
+    console.log(userRecord)
 });
 
 function renderMessage(playerRecords) {
