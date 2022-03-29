@@ -137,79 +137,6 @@ beginGame.addEventListener('click', function () {
 })
 
 
-
-var winScore = 0;
-var lossScore = 0;
-var win = document.querySelector(".win");
-var lose = document.querySelector(".lose");
-var scoreBoard = document.querySelector('scoreContainer');
-
-
-function init() {
-    getWins();
-    getlosses();
-  }
-
-function winGame() {
-    scoreBoard.textContent = "Javascript Master!";
-    winScore++
-    startButton.disabled = false;
-    setWins()
-  }
-  
-function loseGame() {
-    scoreBoard.textContent = "Nice Try!";
-    lossScore++
-    startBtn.disabled = false;
-    setLosses()
-  }
-function setWins() {
-    if (timerLeft >= 0) {
-        if (next && timerLeft > 0) {
-            winScore.push(getWins);
-          clearInterval(timer);
-          winGame();
-        }
-        else {
-            (timerLeft === 0);
-            lossScore.push(getLosses);
-        }
-      }
-    win.textContent = winScore;
-    localStorage.setItem("winCount", winScore);
-  }
-function setLosses() {
-    lose.textContent = lossScore;
-    localStorage.setItem("loseCount", lossScore);
-  }
-
-function getWins() {
-    var savedWins = localStorage.getItem("winScore");
-    
-        if (savedWins === null) {
-        winScore = 0;
-        } else {
-        winScore = savedWins;
-        }   
-        win.textContent = winScore;
-  }
-  
-function getlosses() {
-    var storedLoss = localStorage.getItem("loseCount");
-         if (storedLoss === null) {
-         lossScore = 0;
-        } else {
-        lossScore = storedLoss;
-         }
-        lose.textContent = lossScore;
-  }
-
-init()
-console.log(init)
-
-
-
-
 var userInitialInput= document.querySelector('#inital')
 var userScoreInput= document.querySelector('#score')
 var saveButtonInput= document.querySelector('#saveButton')
@@ -233,7 +160,6 @@ playerRecords.forEach(function(playerRecords) {
         })
     })
 
-
 saveButtonInput.addEventListener("click", function (event) {
     event.preventDefault();
     playerRecords.push(userRecord);
@@ -256,12 +182,6 @@ function renderMessage(playerRecords) {
     
     document.querySelector(".scoreInfo").innerHTML = allData;
        }
-
-
-
-
-
-
 
 //created h3 element to display questions
 const questTitle= document.createElement("h3");
