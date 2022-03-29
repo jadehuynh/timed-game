@@ -162,7 +162,6 @@ playerRecords.forEach(function(playerRecords) {
     })
 
 
-
 saveButtonInput.addEventListener("click", function (event) {
     event.preventDefault();
     playerRecords.push(userRecord);

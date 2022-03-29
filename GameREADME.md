@@ -13,5 +13,4 @@ The user will then proceed to move forward with the next button until the either
 ```
 
 ## 
-
-![A user clicks through an interactive coding quiz, then enters initials to save the high score before resetting and starting over.](./Assets/04-web-apis-homework-demo.gif)
+![Prompt displays informing user of rules. Once the player clicks'OK' the game begins!](./assets/image/gamephoto.png)
