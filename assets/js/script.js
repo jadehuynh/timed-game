@@ -73,11 +73,10 @@ function showQuestion(index) {
 }
 
 let answer;
-
 var scoreKeeper= [];
-
 var anAnswer = anAnswer || 0;
-
+//function to check for correct/incorrect answers in the object and to deduct time for incorrect selections
+//function also displays messages on correct/incorrect 
 var checker= document.createElement("h2")
 function ansCheck(answer) {
     var scoreBoard= document.getElementById('scoreInfo')
@@ -91,19 +90,25 @@ function ansCheck(answer) {
                 checker.textContent= "Sorry! Your selection is incorrect. Please refresh the browser to try again."
                 timeLeft= timeLeft-5;
             }
-
-            
             questionContainer.appendChild(checker)
             questionIndex++;
             next(questionIndex)
             console.log(questionIndex)
 }
-
+//variables to hide and show containers during appropiate time
+var mainContainer = document.getElementById('content')
+var scoreScore = document.getElementById('scoreScore')
+scoreScore.style.display="none";
+var infoInput = document.getElementById('infoInput')
+infoInput.style.display="none";
 function next(index) {
     nextBtn.addEventListener('click', function() {
        if (index >= questions.length) {
            alert("You're Done!")
            clearInterval(timer)
+           mainContainer.style.display="none";
+           scoreScore.style.display="block";
+           infoInput.style.display="block";
        }
        else {
         checker.textContent= " "
@@ -111,8 +116,6 @@ function next(index) {
        }
     })
 }
-
-
 
 
 //made prompt with rules for creating an element to hold the text
@@ -144,7 +147,7 @@ beginGame.addEventListener('click', function () {
 })
 
 
-
+//variables for functions to store user input
 var userInitialInput= document.getElementById('intial')
 var userScoreInput= document.querySelector('#score')
 var saveButtonInput= document.querySelector('#saveButton')
@@ -152,7 +155,8 @@ var playerRecords= [];
 
 let userRecord;
 
-//***had trouble making a function to log the user input of initals and high score and ended up not needing this block of code!
+//for the block below, I had trouble making a function to log the user input of initals and high score and ended up not needing this block of code!
+
 // playerRecords.forEach(function(playerRecords) {
 //     var saveButtonInput= document.createElement("button"); 
 //         saveButtonInput.classList.add("saveButton")
@@ -180,7 +184,7 @@ saveButtonInput.addEventListener("click", function (event) {
     console.log(userRecord)
 });
 
-//function to publish information
+//function to publish information and to alertd the user they are finished
 function renderMessage(playerRecords) {
     var playerListFromStorage = JSON.parse(localStorage.getItem("userRecord"));  
    
