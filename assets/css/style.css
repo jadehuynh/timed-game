@@ -90,3 +90,11 @@ h2 {
     padding:1rem;
     color: white;
 }
+#saveButton {
+    margin: 1rem;
+    cursor: pointer;
+    font-size: 1rem;
+    border: 2px solid white;
+    background-color: rgba(212, 10, 145, 0.8);
+    border-style: dotted;
+}
