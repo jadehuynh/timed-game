@@ -1,9 +1,10 @@
+//global variables for the prompt with rules, title of game, and the start button
 var welcomeTxt= document.querySelector('.lrgTitle')
 var rules= document.querySelector('.intro-Rules')
 var beginGame= document.querySelector('.start-btn'); beginGame.style.position = "sticky";
 beginGame.style.left = "50%";
 beginGame.style.transform = "translateX(-50%)";
-
+//global variables for the timer counting down, and for the questions and answers
 var timeLeft= 60
 var timeDisplay= document.querySelector('.timerStart')
 var quest= document.querySelector('#questions')
@@ -14,9 +15,9 @@ var nextBtn= document.querySelector('.nextBtn'); nextBtn.style.position = "stick
 nextBtn.style.left = "49%";
 nextBtn.style.transform = "translateX(-49%)";
 
-
+//section and container holding the trivia section
 questionContainer.style.display= "none"
-
+//question and answer object
 var questions= [
     {
         question: "What is the correct abbreviation for JavaScript?",
@@ -151,21 +152,23 @@ var playerRecords= [];
 
 let userRecord;
 
-playerRecords.forEach(function(playerRecords) {
-    var saveButtonInput= document.createElement("button"); 
-        saveButtonInput.classList.add("saveButton")
-        saveButtonInput.textContent= userRecord.push(playerRecords)
-        saveButtonInput.appendChild(saveButtonInput)
-        userRecord.appendChild(saveButtonInput)
-        saveButtonInput.addEventListener('click', function () {
+//***had trouble making a function to log the user input of initals and high score and ended up not needing this block of code!
+// playerRecords.forEach(function(playerRecords) {
+//     var saveButtonInput= document.createElement("button"); 
+//         saveButtonInput.classList.add("saveButton")
+//         saveButtonInput.textContent= userRecord.push(playerRecords)
+//         saveButtonInput.appendChild(saveButtonInput)
+//         userRecord.appendChild(saveButtonInput)
+//         saveButtonInput.addEventListener('click', function () {
             
-            renderMessage(saveButtonInput)
-        })
-    })
+//             renderMessage(saveButtonInput)
+//         })
+//     })
 
+
+//function to push user information and score to local storage
 saveButtonInput.addEventListener("click", function (event) {
     event.preventDefault();
-// console.log(userInitialInput);
      userRecord= {
         Intials: userInitialInput.value,
         Score: userScoreInput.value,
@@ -174,11 +177,10 @@ saveButtonInput.addEventListener("click", function (event) {
   
     localStorage.setItem("userRecord", JSON.stringify(playerRecords));
     renderMessage();
-
-
     console.log(userRecord)
 });
 
+//function to publish information
 function renderMessage(playerRecords) {
     var playerListFromStorage = JSON.parse(localStorage.getItem("userRecord"));  
    
