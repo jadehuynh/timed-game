@@ -46,6 +46,7 @@ var questions= [
         cAnswer: "Join"
     },
 ]
+
 var questionIndex= 0
 
 function showQuestion(index) {
@@ -68,15 +69,22 @@ function showQuestion(index) {
                 //console.log(answerButton.textContent)
                 ansCheck(answerButton.textContent)
             })
-            
+
     })
 }
-    
+
+let answer;
+
+var scoreKeeper= [];
+
+var anAnswer = anAnswer || 0;
+
 var checker= document.createElement("h2")
 function ansCheck(answer) {
-    
+    var scoreBoard= document.getElementById('scoreInfo')
         if (answer === questions[questionIndex].cAnswer) {
-            console.log("correct")
+            anAnswer++;
+            scoreBoard.textContent= anAnswer + " out of 5 correct answers";
             checker.textContent= "Great work! Your selection is correct."
         }
             else {
@@ -137,21 +145,17 @@ beginGame.addEventListener('click', function () {
 })
 
 
-// var scoreInfoEl = document.getElementById('scoreInfo')
-// scoreInfoEl.textContent= timeLeft;
-
 
 var userInitialInput= document.getElementById('intial')
 var userScoreInput= document.querySelector('#score')
 var saveButtonInput= document.querySelector('#saveButton')
-var scoreForm= document.querySelector('#score-form')
 var playerRecords= [];
 
 let userRecord;
 
 playerRecords.forEach(function(playerRecords) {
     var saveButtonInput= document.createElement("button"); 
-        saveButtonInput.classList.add("save-btn")
+        saveButtonInput.classList.add("saveButton")
         saveButtonInput.textContent= userRecord.push(playerRecords)
         saveButtonInput.appendChild(saveButtonInput)
         userRecord.appendChild(saveButtonInput)
@@ -163,7 +167,7 @@ playerRecords.forEach(function(playerRecords) {
 
 saveButtonInput.addEventListener("click", function (event) {
     event.preventDefault();
-console.log(userInitialInput);
+// console.log(userInitialInput);
      userRecord= {
         Intials: userInitialInput.value,
         Score: userScoreInput.value,
