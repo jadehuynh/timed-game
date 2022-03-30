@@ -1,5 +1,3 @@
-var rootEl = $('#root');
-
 var welcomeTxt= document.querySelector('.lrgTitle')
 var rules= document.querySelector('.intro-Rules')
 var beginGame= document.querySelector('.start-btn'); beginGame.style.position = "sticky";
@@ -118,7 +116,7 @@ function next(index) {
 
 //made prompt with rules for creating an element to hold the text
 const procedures = document.createElement("p");
-rules.appendChild(procedures).textContent= alert('Welcome to the TIMED QUIZ GAME! This is a multiple choice game. Please read the question(s) carefully before selecting ONE of the FOUR answers provided to proceed. You are given 60 seconds to answer all five questions. If you finish answering all the given questions before the timer reaches ZERO, you win! Although, if you DO NOT finish within the alotted time- YOU LOSE! Please refresh the browser to try again.')
+rules.appendChild(procedures).textContent= alert('Welcome to the TIMED QUIZ GAME! This is a multiple choice game. Please read the question(s) carefully before selecting ONE of the FOUR answers provided to proceed. You are given 60 seconds to answer all five questions. For every incorrect answer the user selects, five seconds will be deducted from the timer. Should the player finish answering all given questions before the timer reaches ZERO, you win! Although, if the user does NOT finish within the 60 seconds alloted- YOU LOSE! Please refresh the browser to try again.')
 
 
 var timer;

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- "title of game" -->
+    <!-- "window tab title -->
     <title>Quiz Game!</title>
     <!-- "linking to css style and reset sheet" -->
     <link rel="stylesheet" type="text/css" href="./assets/css/reset.css" />
@@ -27,26 +27,28 @@
     <div id="questions"></div>
     <!-- "selection of answers" -->
     <div class="answers"></div>
+        <!-- "next button to proceed to the following question" -->
         <button class="nextBtn">NEXT</button>
     </div>
 </section>
+<!-- "section that displays a response whether user selects the correct/wrong answer" -->
 <section>
     <div class="card-results">
       <div class ="scoreContainer">
         <h2><span class="correct"></span></h2>
     </div>
 </section>
-
+<!-- 'scoreboard section tallying user's correct reponses to enter at the end -->
 <div id="infoInput">
     <form>
         <label id="scoreInfo"></label>
+        <!-- "forms for user to log initials and score to save to local storage" -->
             <input type="text" id="intial" placeholder="ENTER INITALS">
             <input type="numbers" id="score" placeholder="SCORE">
             <button id="saveButton">CLICK HERE TO SAVE YOUR SCORE</button>
     </form>
 </div>
-<!-- "linked the script and CDN to html" -->
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
     <script src="./assets/js/script.js"></script>
     <!-- <script src="./assets/js/score.js"></script> -->
 </body>
